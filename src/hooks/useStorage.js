@@ -12,7 +12,7 @@ function useStorage(file) {
         const collectionRef = projectFirestore.collection("images");
 
         storageRef.put(file).on("state_changed", (snapshot) => {
-            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            let percentage = (snapshot.bytesTransferred / snapshot.totalBytes);
 
             setProgress(percentage);
         }, (err) => {

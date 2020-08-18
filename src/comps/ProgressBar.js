@@ -15,7 +15,7 @@ export default function ProgressBar({ file, setFile }) {
     return (
         <motion.div className="progress-bar"
             initial={{ scaleX: 0 }}
-            animate={{ scaleX: progress / 100 }}
+            animate={{ scaleX: progress }}
         ></motion.div>
     );
 }
