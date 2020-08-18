@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+
+export default function UploadForm() {
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState(null);
+
+    const allowedTypes = ["image/png", "image/jpeg"];
+
+    function changeHandler(event) {
+        const selected = event.target.files[0];
+        
+        if (selected && allowedTypes.includes(selected.type)) {
+            setFile(selected);
+            setError("");
+        } else {
+            setFile(null);
+            setError("Please select an image file (png or jpeg).");
+        }
+    }
+
+    return (
+        <form>
+            <input type="file" onChange={changeHandler} name="" id=""/>
+            <div className="output">
+                {error && <p className="error">{error}</p>}
+                {file && <p>{file.name}</p>}
+            </div>
+        </form>
+    );
+}
